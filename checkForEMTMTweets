@@ -1,0 +1,61 @@
+[
+    {
+        "id": "23c1b3bd.b1e2bc",
+        "type": "twitter in",
+        "z": "7b1ed56a.f775fc",
+        "twitter": "",
+        "tags": "#emtm,#mtm,#EMTM",
+        "user": "false",
+        "name": "emtm",
+        "topic": "tweets",
+        "inputs": 0,
+        "x": 243,
+        "y": 170,
+        "wires": [
+            [
+                "1a6712f4.1c439d"
+            ]
+        ]
+    },
+    {
+        "id": "1a6712f4.1c439d",
+        "type": "sentiment",
+        "z": "7b1ed56a.f775fc",
+        "name": "",
+        "x": 369,
+        "y": 213,
+        "wires": [
+            [
+                "f6e3e0e.f4ca22"
+            ]
+        ]
+    },
+    {
+        "id": "b518c4b.07fef38",
+        "type": "debug",
+        "z": "7b1ed56a.f775fc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 593,
+        "y": 97,
+        "wires": []
+    },
+    {
+        "id": "f6e3e0e.f4ca22",
+        "type": "function",
+        "z": "7b1ed56a.f775fc",
+        "name": "",
+        "func": "msg.payload = (\n    \"Sentiment score: \" +\n    msg.sentiment.score +\n    \"\\r\\n\" +\n    msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 493,
+        "y": 228,
+        "wires": [
+            [
+                "b518c4b.07fef38"
+            ]
+        ]
+    }
+]
